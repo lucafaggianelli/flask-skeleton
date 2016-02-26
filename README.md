@@ -3,7 +3,7 @@ Generate a minimal flask app from a template
 
 ## Usage
 Create the app
-`./skeleton.py ~/projects/ awesome_app "Awesome nice app"`
+`./skeleton.py createapp ~/projects/ awesome_app "Awesome nice app"`
 
 Init a virtual environment (optional)
 ```

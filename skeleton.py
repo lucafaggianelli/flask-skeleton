@@ -65,9 +65,9 @@ def render_python_src(app_name, context=dict(), out_dir='.'):
         # runserver.py, app_name/templates/index.html
         template_curr_dir = os.path.relpath(curr_dir, start=template_dir) # curr_dir_rel
         out_curr_dir = os.path.join(app_dir, re.sub('^app_name', app_name, template_curr_dir))
-        print 'template_curr_dir.repl()', re.sub('^app_name', app_name, template_curr_dir)
-        print 'template_curr_dir', template_curr_dir
-        print 'out_curr_dir', out_curr_dir
+        logging.debug('template_curr_dir.sub() ' + re.sub('^app_name', app_name, template_curr_dir))
+        logging.debug('template_curr_dir ' + template_curr_dir)
+        logging.debug('out_curr_dir ' + out_curr_dir)
 
         # Walked into a new directory, should create the same dir in the
         # out dir
@@ -122,3 +122,5 @@ if __name__ == '__main__':
             'name_pretty': app_name_pretty if app_name_pretty else app_name
         }
         render_python_src(app_name, out_dir=out_dir, context=context)
+    else:
+        sys.exit('Unknown command: ' + cmd)
